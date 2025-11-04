@@ -1,0 +1,3 @@
+Qridian includes third-party software:
+- qr-code-styling@1.6.0-rc.1 (MIT) © Denis Kozak — see vendor-licenses/qr-code-styling.LICENSE
+- qr-scanner@1.4.2 (MIT) © Nimiq — see vendor-licenses/qr-scanner.LICENSE

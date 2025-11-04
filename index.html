@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    MIT License
+
+    Copyright (c) 2025 NQR
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+  -->
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon-180x180.png">
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qridian</title>
+  
+  <!-- QR Code Libraries -->
+  <!-- Using qr-scanner for scanning: more reliable with various image formats and styled QR codes 
+    https://unpkg.com/qr-code-styling@1.6.0-rc.1/lib/qr-code-styling.js 
+  <script src="assets/js/vendor/qr-scanner.min.js"></script>
+  <script type="module" src="assets/js/vendor/qr-scanner.min.js"></script>
+  -->
+  <script src="assets/js/vendor/qr-code-styling.js"></script>
+  
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="app-header">
+    <img src="assets/images/logo.png" alt="App Logo" class="app-logo" onerror="this.style.display='none'">
+    <h2 class="app-title">Qridian</h2>
+    <p class="app-subtitle">A QR code creator &amp; reader by NQR</p>
+  </header>
+
+  <!-- TAB NAVIGATION -->
+  <nav class="tab-nav">
+    <button type="button" class="tab-btn active" data-tab="create">Create QR</button>
+    <button type="button" class="tab-btn" data-tab="scan">Scan QR</button>
+  </nav>
+
+  <!-- CREATE TAB -->
+  <div id="create-tab" class="tab-content active">
+    <!-- CONTROLS PANEL -->
+    <main class="panel" aria-labelledby="create-controls-title">
+      <h2 class="section-title" id="create-controls-title">QR Code Settings</h2>
+      
+      <div class="row">
+        <label class="full-width">
+          Content (URL or Text)
+          <input type="text" id="qr-text" placeholder="https://example.com or any text" value="https://example.com">
+        </label>
+      </div>
+
+      <div class="row">
+        <label>
+          Error Correction
+          <select id="qr-ecc">
+            <option value="L">Low (7%)</option>
+            <option value="M" selected>Medium (15%)</option>
+            <option value="Q">Quartile (25%)</option>
+            <option value="H">High (30%)</option>
+          </select>
+        </label>
+        
+        <label>
+          Size (px)
+          <input type="number" id="qr-size" value="300" min="100" max="1000" step="50">
+        </label>
+
+        <label>
+          Quiet Zone (px)
+          <input type="number" id="qr-margin" value="10" min="0" max="50" step="5">
+        </label>
+      </div>
+
+      <div class="row">
+        <label>
+          Dot Style
+          <select id="qr-dot-style">
+            <option value="square">Square</option>
+            <option value="rounded" selected>Rounded</option>
+            <option value="dots">Dots</option>
+            <option value="classy">Classy</option>
+            <option value="classy-rounded">Classy Rounded</option>
+          </select>
+        </label>
+
+        <label>
+          Corner Style
+          <select id="qr-corner-style">
+            <option value="square">Square</option>
+            <option value="dot" selected>Dot</option>
+            <option value="extra-rounded">Extra Rounded</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="row">
+        <label>
+          Dots Color
+          <input type="color" id="qr-color" value="#1fc9aa">
+        </label>
+
+        <label>
+          Background Color
+          <input type="color" id="qr-bg-color" value="#0c1020">
+        </label>
+
+        <label class="checkbox-label">
+          <input type="checkbox" id="qr-gradient">
+          Use Gradient
+        </label>
+      </div>
+
+      <div class="row gradient-row" id="gradient-controls" style="display: none;">
+        <label>
+          Gradient Start
+          <input type="color" id="qr-gradient-start" value="#1fc9aa">
+        </label>
+
+        <label>
+          Gradient End
+          <input type="color" id="qr-gradient-end" value="#18b79a">
+        </label>
+
+        <label>
+          Gradient Type
+          <select id="qr-gradient-type">
+            <option value="linear">Linear</option>
+            <option value="radial">Radial</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="row">
+        <label class="full-width">
+          Logo Image (optional)
+          <input type="file" id="qr-logo" accept="image/*">
+        </label>
+      </div>
+
+      <div class="row">
+        <label class="full-width small-text">
+          Or paste logo URL
+          <input type="text" id="qr-logo-url" placeholder="https://example.com/logo.png">
+        </label>
+      </div>
+
+      <div class="row">
+        <label>
+          Logo Size
+          <input type="range" id="qr-logo-size" min="0.1" max="0.5" step="0.05" value="0.2">
+          <span class="range-value" id="logo-size-value">0.2</span>
+        </label>
+      </div>
+
+      <div id="contrast-warning" class="warning-box" style="display: none;">
+        ⚠️ Low contrast detected. QR code may be difficult to scan. Consider adjusting colors.
+      </div>
+    </main>
+
+    <!-- PREVIEW PANEL -->
+    <section class="panel" aria-labelledby="preview-title">
+      <h2 class="section-title" id="preview-title">Preview</h2>
+      <label>Some styles are difficult to read. Check before distributing.</label>
+      <div class="qr-preview-container">
+        <div id="qr-preview"></div>
+      </div>
+      <div class="row" style="justify-content: center; margin-top: 16px;">
+        <button type="button" id="download-svg">Download SVG</button>
+        <button type="button" id="download-png">Download PNG</button>
+        <button type="button" id="copy-image">Copy to Clipboard</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- SCAN TAB -->
+  <div id="scan-tab" class="tab-content">
+    <!-- SCAN CONTROLS -->
+    <main class="panel" aria-labelledby="scan-controls-title">
+      <h2 class="section-title" id="scan-controls-title">Scan Options</h2>
+      
+      <div class="row">
+        <label class="file-upload-btn">
+          📁 Upload Image
+          <input type="file" id="scan-file" accept="image/*" style="display: none;">
+        </label>
+        <button type="button" id="start-camera" class="scan-btn">📷 Scan from Camera</button>
+      </div>
+
+      <div id="paste-notice" class="info-box">
+        💡 <strong>Pro tip:</strong> Take a screenshot (Windows: Win+Shift+S, Mac: Cmd+Shift+4) and press <kbd>Ctrl+V</kbd> (or <kbd>Cmd+V</kbd>) to paste and scan!
+      </div>
+    </main>
+
+    <!-- CAMERA PREVIEW -->
+    <section class="panel" id="camera-panel" style="display: none;" aria-labelledby="camera-title">
+      <h2 class="section-title" id="camera-title">Camera View</h2>
+      <div id="camera-reader"></div>
+      <div class="row" style="justify-content: center; margin-top: 12px;">
+        <button type="button" id="stop-camera" class="secondary-btn">Stop Camera</button>
+      </div>
+    </section>
+
+    <!-- SCAN RESULT -->
+    <section class="panel" aria-labelledby="result-title">
+      <h2 class="section-title" id="result-title">Scan Result</h2>
+      <div class="output-area" id="scan-output">
+        No QR code scanned yet. Use camera or upload an image.
+      </div>
+      <div class="row" style="justify-content: center; margin-top: 12px; display: none;" id="result-actions">
+        <button type="button" id="copy-result">Copy Result</button>
+        <button type="button" id="open-link" style="display: none;">Open Link</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER / LICENSE -->
+  <footer class="license-footer" id="licenseLink">
+    MIT License • Developed by NQR • Click to view
+  </footer>
+
+  <div class="license-overlay" id="licenseOverlay"></div>
+  <div class="license-modal" id="licenseModal" role="dialog" aria-modal="true" aria-labelledby="licenseTitle">
+    <div class="license-modal-header">
+      <h3 class="license-modal-title" id="licenseTitle">MIT License</h3>
+      <span class="license-modal-close" id="licenseClose" aria-label="Close license dialog">&times;</span>
+    </div>
+    <pre class="small-muted" style="text-align:center; white-space:pre-wrap; margin-top:14px;">
+Copyright (c) 2025 NQR
+
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+    </pre>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
