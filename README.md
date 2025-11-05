@@ -4,6 +4,8 @@
 
 **Qridian** is a lightweight, fully client‑side QR code **generator & scanner** for ARG creators and everyday tinkerers. It runs entirely in the browser—no servers, accounts, or build tools—so you can design, test, and scan codes with confidence, even offline.
 
+[**View Live Demo**](nqrlabs.com/Qridian/)
+
 ## Overview
 
 Qridian lets you **design branded QR codes** (colors, gradients, logos, corner shapes) and **scan** codes from the camera or from image files. Everything happens locally. It’s fast and privacy‑preserving.
