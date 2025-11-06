@@ -19,25 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-------------------------------------------------------------
-Third-Party Notices (vendored)
-------------------------------------------------------------
-
-This distribution of Qridian bundles unmodified copies of the following
-open-source components. Each component remains under its own license;
-Qridian’s MIT license applies only to Qridian’s original code.
-
-- qr-code-styling@1.6.0-rc.1 - MIT License - © Denis Kozak
-  Files: assets/js/vendor/qr-code-styling.js
-  License: vendor-licenses/qr-code-styling.LICENSE
-  Project: https://github.com/kozakdenys/qr-code-styling
-
-- qr-scanner@1.4.2 - MIT License - © Nimiq
-  Files: assets/js/vendor/qr-scanner.min.js,
-         assets/js/vendor/qr-scanner-worker.min.js
-  License: vendor-licenses/qr-scanner.LICENSE
-  Project: https://github.com/nimiq/qr-scanner
-
-Upstream copyright and license notices are preserved
-in the vendored files and corresponding LICENSE texts.

@@ -1,3 +1,21 @@
-Qridian includes third-party software:
-- qr-code-styling@1.6.0-rc.1 (MIT) © Denis Kozak — see vendor-licenses/qr-code-styling.LICENSE
-- qr-scanner@1.4.2 (MIT) © Nimiq — see vendor-licenses/qr-scanner.LICENSE
+------------------------------------------------------------
+Third-Party Notices (vendored)
+------------------------------------------------------------
+
+This distribution of Qridian bundles unmodified copies of the following
+open-source components. Each component remains under its own license;
+Qridian’s MIT license applies only to Qridian’s original code.
+
+- qr-code-styling@1.6.0-rc.1 - MIT License - © Denis Kozak
+  Files: assets/js/vendor/qr-code-styling.js
+  License: vendor-licenses/qr-code-styling.LICENSE
+  Project: https://github.com/kozakdenys/qr-code-styling
+
+- qr-scanner@1.4.2 - MIT License - © Nimiq
+  Files: assets/js/vendor/qr-scanner.min.js,
+         assets/js/vendor/qr-scanner-worker.min.js
+  License: vendor-licenses/qr-scanner.LICENSE
+  Project: https://github.com/nimiq/qr-scanner
+
+Upstream copyright and license notices are preserved
+in the vendored files and corresponding LICENSE texts.
