@@ -1,14 +1,14 @@
-<img alt="Qridian-logo" src="./assets/images/logo.png" style="margin-left:auto; margin-right:auto; display:block; width:220px;"/>
+<img alt="TinaQR-logo" src="./assets/images/logo.png" style="margin-left:auto; margin-right:auto; display:block; width:220px;"/>
 
-# Qridian
+# TinaQR - This Is Not A QR code creator & reader
 
-**Qridian** is a lightweight, fully client‑side QR code **generator & scanner** for ARG creators and everyday tinkerers. It runs entirely in the browser—no servers, accounts, or build tools—so you can design, test, and scan codes with confidence, even offline.
+**TinaQR** is a lightweight, fully client‑side QR code **generator & scanner** for ARG creators and everyday tinkerers. It runs entirely in the browser—no servers, accounts, or build tools—so you can design, test, and scan codes with confidence, even offline.
 
-[**View Live Demo**](https://nqrlabs.com/Qridian/)
+[**View Live Demo**](https://nqrlabs.com/TinaQR/)
 
 ## Overview
 
-Qridian lets you **design branded QR codes** (colors, gradients, logos, corner shapes) and **scan** codes from the camera or from image files. Everything happens locally. It’s fast and privacy‑preserving.
+TinaQR lets you **design branded QR codes** (colors, gradients, logos, corner shapes) and **scan** codes from the camera or from image files. Everything happens locally. It’s fast and privacy‑preserving.
 
 ## Features
 
@@ -61,8 +61,8 @@ MIT License — free for modification and use. Attribution appreciated if used p
 
 ## Third-Party Components (vendored)
 
-This distribution of **Qridian** bundles copies of the following open-source libraries.  
-Each component remains under its own license; Qridian’s MIT license applies to Qridian’s original code only.
+This distribution of **TinaQR** bundles copies of the following open-source libraries.  
+Each component remains under its own license; TinaQR’s MIT license applies to TinaQR’s original code only.
 
 - **qr-code-styling@1.6.0-rc.1** — MIT License — © Denis Kozak  
   Files: `assets/js/vendor/qr-code-styling.js`  
@@ -80,4 +80,4 @@ Each component remains under its own license; Qridian’s MIT license applies to
 
 ## Credit
 
-Created by **NQR** for ARG designers, puzzle creators, and curious builders who like their tools simple, beautiful, and local‑first. If you use *Qridian* in an event or project, I’d love to hear about it.
+Created by **NQR** for ARG designers, puzzle creators, and curious builders who like their tools simple, beautiful, and local‑first. If you use *TinaQR* in an event or project, I’d love to hear about it.

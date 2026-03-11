@@ -2,9 +2,9 @@
 Third-Party Notices (vendored)
 ------------------------------------------------------------
 
-This distribution of Qridian bundles unmodified copies of the following
+This distribution of TinaQR bundles unmodified copies of the following
 open-source components. Each component remains under its own license;
-Qridian’s MIT license applies only to Qridian’s original code.
+TinaQR’s MIT license applies only to TinaQR’s original code.
 
 - qr-code-styling@1.6.0-rc.1 - MIT License - © Denis Kozak
   Files: assets/js/vendor/qr-code-styling.js
